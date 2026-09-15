@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Startup Idea Score</title>
+	<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+	<main class="shell">
+		<section class="intro">
+			<p class="eyebrow">Startup intelligence</p>
+			<h1>How ready is your startup for its next chapter?</h1>
+			<p class="lede">Enter the signals your startup already has. The trained model estimates whether its observed profile resembles a successful or failed outcome.</p>
+			<div class="stat"><strong>76.15%</strong><span>holdout accuracy</span></div>
+		</section>
+
+		<section class="panel">
+			<form id="score-form">
+				<div class="section-heading"><span>01</span><h2>Startup profile</h2></div>
+				<div class="grid">
+					<label>Funding total (USD)<input name="funding_total_usd" type="number" min="0" step="1000" placeholder="500000" required></label>
+					<label>Funding rounds<input name="funding_rounds" type="number" min="0" step="1" placeholder="2" required></label>
+					<label>Main categories<input name="category_list" type="text" placeholder="Software|SaaS" required></label>
+					<label>Country code<input name="country_code" type="text" maxlength="3" placeholder="USA" required></label>
+					<label>State code<input name="state_code" type="text" placeholder="CA"></label>
+					<label>Founded year<input name="founded_year" type="number" min="1800" max="2100" placeholder="2020"></label>
+					<label>First funding year<input name="first_funding_year" type="number" min="1800" max="2100" placeholder="2021"></label>
+					<label>Last funding year<input name="last_funding_year" type="number" min="1800" max="2100" placeholder="2023"></label>
+				</div>
+				<button type="submit">Calculate startup score <span>→</span></button>
+			</form>
+			<div id="result" class="result" aria-live="polite"></div>
+		</section>
+	</main>
+	<script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
